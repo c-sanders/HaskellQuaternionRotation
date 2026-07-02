@@ -1,0 +1,58 @@
+cabal-version:      3.0
+name:               quaternion
+version:            0.1.0.0
+build-type:         Simple
+
+
+-- Build the binary executable for this package.
+
+executable quaternion
+
+    hs-source-dirs:   app
+    main-is:          Main.hs
+    build-depends:    base >=4.20.0.0 && <5,
+                      linear,
+                      utils,
+                      mathutils
+    default-language: Haskell2010
+
+
+-- Build the library called : utils
+--
+-- Note that the library is called utils immediately below and not Utils.
+
+library utils
+
+    -- Modules exported by the library.
+    -- The file which contains the code for the library must be called Utils.hs - not utils.hs
+
+    exposed-modules:  Utils
+
+    -- Directories containing source files.
+    hs-source-dirs:   src
+
+    -- Other library packages from which modules are imported.
+    build-depends:    base >=4.20.0.0 && <5
+
+    default-language: Haskell2010
+
+
+-- Build the library called : mathutils
+--
+-- Note that the library is called mathutils immediately below and not MathUtils.
+
+library mathutils
+
+    -- Modules exported by the library.
+    -- The file which contains the code for the library must be called Utils.hs - not utils.hs
+
+    exposed-modules:  MathUtils
+
+    -- Directories containing source files.
+    hs-source-dirs:   src
+
+    -- Other library packages from which modules are imported.
+    build-depends:    base >=4.20.0.0 && <5,
+                      linear
+
+    default-language: Haskell2010
